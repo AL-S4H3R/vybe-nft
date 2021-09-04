@@ -1,6 +1,7 @@
 import React, { useState, useCallback} from 'react'
-import { magic } from '../../config/magic';
+import { magic } from '../../config/magic'
 import { useHistory } from 'react-router-dom'
+
 const paraMsg = `Enjoy crispy NFT's for doing your finances right.`
 
 const Hero: React.FC = () => {

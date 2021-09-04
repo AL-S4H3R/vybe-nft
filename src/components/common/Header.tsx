@@ -1,7 +1,5 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
-// @ts-ignore
-const globalSolanaObject = window.solana
 
 const Header: FC = () => {
     const logo = 'VYBE.net'

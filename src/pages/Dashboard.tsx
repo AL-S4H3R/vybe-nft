@@ -1,5 +1,4 @@
 import React, { FC , useEffect } from 'react'
-import useMagic from '../hooks/useMagic'
 import { useHistory } from 'react-router-dom'
 import { magic } from '../config/magic'
 import { useState } from 'react'
@@ -9,7 +8,7 @@ const Dashboard: FC = () => {
 
     // const { userMetadata, isLoggedIn } = useMagic()
     const history = useHistory()
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [, setIsLoggedIn] = useState(false)
     const [userMetadata, setUsermetadata] = useState<MagicUserMetadata>()
     
     const welcomeMessage = `Hi ${userMetadata?.email?.split('.')[0]}, welcome to vybe`
