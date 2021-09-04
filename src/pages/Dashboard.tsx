@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { magic } from '../config/magic'
 import { useState } from 'react'
 import { MagicUserMetadata } from 'magic-sdk'
+import Loader from '../components/common/Loading'
 
 const Dashboard: FC = () => {
 
@@ -10,8 +11,9 @@ const Dashboard: FC = () => {
     const history = useHistory()
     const [, setIsLoggedIn] = useState(false)
     const [userMetadata, setUsermetadata] = useState<MagicUserMetadata>()
-    
-    const welcomeMessage = `Hi ${userMetadata?.email?.split('.')[0]}, welcome to vybe`
+    const [loading, setLoading] = useState(true)
+
+    const welcomeMessage = `Hi ${userMetadata?.email?.split('@')[0]}, welcome to vybe`
 
     useEffect(() => {
         getUserStatus()
@@ -24,12 +26,17 @@ const Dashboard: FC = () => {
         if(loginStatus === true) {
             const data = await magic.user.getMetadata()
             setUsermetadata(data)
+            setLoading(false)
         }
         else {
             history.push('/')
         }
     }
 
+    if(loading) {
+        return <Loader />
+    }
+    
     return(
         <div className="font-museo px-4 py-6 w-screen md:px-8 lg:px-16 h-screen overflow-hidden space-y-8">
             <nav className="flex items-center justify-between">
