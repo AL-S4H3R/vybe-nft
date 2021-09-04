@@ -1,18 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './pages/Home';
+import React from 'react'
+import { render } from 'react-dom'
+import './index.css'
+import { BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 const App: React.FC = () => {
     return(
-        <>
-          <Home />
-        </>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/dashboard' component={Dashboard} />
+          </Switch>
+        </BrowserRouter>
     )
 } 
 
-ReactDOM.render(
-    <App />,
-  document.getElementById('root')
-);
+const root = document.getElementById('root')
+
+render(<App />, root)
 

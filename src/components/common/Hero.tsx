@@ -1,8 +1,18 @@
-import React from 'react'
-
+import React, { useState, useCallback} from 'react'
+import { magic } from '../../config/magic';
+import { useHistory } from 'react-router-dom'
 const paraMsg = `Enjoy crispy NFT's for doing your finances right.`
 
 const Hero: React.FC = () => {
+
+    const [email, setEmail] = useState('')
+    const history = useHistory()
+    
+    const sendMagicLink = useCallback(async () => {
+        await magic.auth.loginWithMagicLink({ email })
+        history.push("/dashboard")
+    }, [email]);
+
     return(
         <div className="font-museo px-4 py-6 w-screen md:px-8 lg:px-16 lg:py-8 space-y-4">
             <div className="flex items-center justify-center">
@@ -19,8 +29,12 @@ const Hero: React.FC = () => {
                             name="email" 
                             placeholder="Enter your best email & start vybing"
                             className="w-full border px-4 py-2 text-center mt-4 rounded border-black"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
-                        <button className="w-full transform hover:-translate-y-2 bg-black p-2 text-white rounded hover:bg-gray-800 hover:text-gray-100 duration-200">
+                        <button
+                            onClick={sendMagicLink} 
+                            className="w-full transform hover:-translate-y-2 bg-black p-2 text-white rounded hover:bg-gray-800 hover:text-gray-100 duration-200">
                             Early Access
                         </button>
                     </div>
