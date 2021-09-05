@@ -47,7 +47,7 @@ const Dashboard: FC = () => {
     return(
         <div className="font-museo px-4 py-6 w-screen md:px-8 lg:px-16 h-screen overflow-auto space-y-8">
             <nav className="flex items-center justify-between">
-                <h1 className="text-4xl font-bold">VYBE.net</h1>
+                <h1 className="text-4xl ">VYBE.net</h1>
                 <button onClick={logout} className="p-2 bg-gray-900 text-gray-200 rounded shadow">
                     Logout
                 </button>
