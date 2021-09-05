@@ -2,7 +2,8 @@ import React, { useState, useCallback} from 'react'
 import { magic } from '../../config/magic'
 import { useHistory } from 'react-router-dom'
 
-const paraMsg = `Enjoy crispy NFT's for doing your finances right.`
+const paraMsg1 = `Get an NFT everytime you shop.`
+const paraMsg2 = `No extensions, No private keys, No BS.`
 
 const Hero: React.FC = () => {
 
@@ -20,9 +21,12 @@ const Hero: React.FC = () => {
                 <div>
                     <div className="space-y-4">
                         <h1 className="text-center text-4xl md:text-6xl font-bold bg-clip-text bg-gradient-to-br from-indigo-800 to-blue-800">
-                            NFT's done right
+                            Free NFT's for all.
                         </h1>
-                        <p className="text-center text-xl opacity-80 font-mono">{paraMsg}</p>
+                        <div>
+                            <p className="text-center text-xl opacity-80 font-mono">{paraMsg1}</p>
+                            <p className="text-center text-xl opacity-80 font-mono">{paraMsg2}</p>
+                        </div>
                     </div>
                     <div className="space-y-3">
                         <input 
